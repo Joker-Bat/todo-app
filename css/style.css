@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom left, orangered, purple);
+  font-family: "Play", sans-serif;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
+
+.container {
+  width: 40%;
+  height: 100%;
+  background-color: #000;
+  overflow-x: hidden;
+  position: relative; }
+  .container .top {
+    width: 100%;
+    height: 35%;
+    position: relative;
+    background: linear-gradient(to bottom left, rgba(51, 56, 52, 0.5), rgba(138, 56, 116, 0.5)), url("../images/bg.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0 0 30px 30px; }
+    .container .top-text {
+      position: absolute;
+      left: 6%;
+      bottom: 10%;
+      font-size: 4rem;
+      font-weight: 700; }
+  .container .bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; }
+    .container .bottom .item {
+      width: 95%;
+      height: auto;
+      margin-bottom: 1.5rem;
+      background-color: #1a1919;
+      text-align: left;
+      position: relative;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all .2s;
+      animation: from-left .5s ease; }
+      .container .bottom .item:hover {
+        background-color: #141414; }
+      .container .bottom .item:first-child {
+        margin-top: 2rem; }
+      .container .bottom .item__title {
+        width: 100%;
+        display: block;
+        font-size: 2.5rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1rem; }
+      .container .bottom .item__title::before {
+        content: '';
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        background-color: #fff;
+        left: 2rem;
+        top: 2rem;
+        border-radius: 50%; }
+      .container .bottom .item__date {
+        width: 100%;
+        display: block;
+        font-size: 1.3rem;
+        word-spacing: .4rem;
+        padding-bottom: 1.5rem; }
+      .container .bottom .item__title, .container .bottom .item__date {
+        padding-left: 6rem; }
+  .container .add {
+    border-radius: 50%;
+    position: fixed;
+    bottom: 5%;
+    right: 33%; }
+    .container .add #add-button {
+      width: 60px;
+      height: 60px;
+      z-index: 10;
+      animation: circle 2s ease alternate; }
+      .container .add #add-button:hover, .container .add #add-button:active {
+        border-radius: 50%;
+        transform: translateY(-2px);
+        transition: .4s;
+        box-shadow: -2px 30px 20px -25px rgba(255, 255, 255, 0.8); }
+      .container .add #add-button:hover #circle {
+        fill: #35ba29; }
+      .container .add #add-button #circle {
+        transition: all .2s; }
+  .container .form__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: #000;
+    transform: translateX(100%) scale(0);
+    transform-origin: left;
+    transition-timing-function: ease-in;
+    transition: all .5s; }
+  .container .show-form {
+    transform: translateX(0) scale(1); }
+  .container .form__page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative; }
+    .container .form__page-title, .container .form__page-description {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative; }
+    .container .form__page-description-text {
+      border: 1px solid black;
+      resize: none; }
+    .container .form__page-title-text, .container .form__page-description-text {
+      width: 90%;
+      padding: 10px 15px;
+      position: relative;
+      font-size: 2.5rem;
+      border: none;
+      border-bottom: 1px solid orangered;
+      text-overflow: ellipsis; }
+    .container .form__page-description-text {
+      border: 1px solid orangered;
+      resize: none;
+      height: 200px; }
+    .container .form__page-title-text:focus, .container .form__page-title-text:active, .container .form__page-description-text:focus, .container .form__page-description-text:active {
+      outline: none;
+      border-color: lime; }
+    .container .form__page-title-text + label, .container .form__page-description-text + label {
+      position: absolute;
+      top: 110%;
+      left: 8%;
+      transition: all .3s; }
+    .container .form__page-title-text:placeholder-shown + label, .container .form__page-description-text:placeholder-shown + label {
+      position: absolute;
+      top: 50%;
+      left: 8%;
+      opacity: 0;
+      visibility: hidden; }
+    .container .form__page-control-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%; }
+    .container .form__page-button {
+      order: 1;
+      width: 100px;
+      padding: 10px 15px;
+      font-size: 2rem;
+      background-color: #3dd62f;
+      margin-right: 3rem;
+      border-radius: 30px;
+      transition: all .2s;
+      cursor: pointer;
+      text-transform: uppercase;
+      align-self: flex-start;
+      color: #fff; }
+      .container .form__page-button:hover {
+        background-color: #35ba29;
+        transform: translateY(-2px);
+        box-shadow: 2px 30px 15px -15px rgba(0, 0, 0, 0.5); }
+    .container .form__page-delete {
+      width: 100px;
+      padding: 10px 15px;
+      font-size: 2rem;
+      background-color: #ed2626;
+      align-self: flex-start;
+      margin-left: 3rem;
+      margin-bottom: 5rem;
+      border-radius: 30px;
+      transition: all .2s;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: #fff; }
+      .container .form__page-delete:hover {
+        background-color: #cc1d1d;
+        transform: translateY(-2px);
+        box-shadow: 2px 30px 15px -15px rgba(0, 0, 0, 0.5); }
+
+@keyframes circle {
+  0% {
+    transform: translateY(300%); }
+  100% {
+    transform: translateY(0); } }
+@keyframes from-left {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translateX(0); } }
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%; }
+    .container .add {
+      right: 5%; } }
+
+/*# sourceMappingURL=style.css.map */
